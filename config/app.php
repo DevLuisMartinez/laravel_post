@@ -179,6 +179,11 @@ return [
          * Spatie Roles-Permission
          */
         Spatie\Permission\PermissionServiceProvider::class,
+
+        /*
+         * Repositories Provider
+         */
+        App\Providers\RepositoryServiceProvider::class,
     ],
 
     /*
