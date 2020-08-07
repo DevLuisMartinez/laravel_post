@@ -24,7 +24,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = $this->postRepository->paginatePosts(6);
+        $posts = $this->postRepository->getPosts();
+        return view('dashboard.post.index',[
+            'posts' => $posts
+        ]);
+    }
+
+    public function myPosts(){
+
+        $perPage = 6;
+        $posts = $this->postRepository->getPostsByUser(auth()->id(), $perPage);
         return view('dashboard.post.index',[
             'posts' => $posts
         ]);
@@ -48,14 +57,33 @@ class PostController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id){
+    public function show(int $id){
+        //
+    }
+
+
+    public function update(PostForm $request, int $id){
  
         $post = $this->postRepository->updatePost($request->all(),$id);
+        Toastr::success('Post updated successfully :)','Success');
         return redirect()->action('Dashboard\PostController@index');
     }
 
     public function destroy(int $id){
         $post = $this->postRepository->deletePost($id);
-        return redirect()->action('Dashboard\PostController@index');
+        if ($post) {
+            return response()->json([
+                'ok'      => true,
+                'message' => 'Post eliminado correctamente.',
+            ]);
+
+        } else {
+
+            return response()->json([
+                'ok'      => false,
+                'message' => 'No se encontró el post a eliminar.',
+            ]);
+
+        }
     }
 }

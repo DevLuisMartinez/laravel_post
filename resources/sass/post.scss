@@ -1,24 +1,22 @@
-.post-full{
-    .post{
-        &.card{
-            min-height: 335px!important;
-            height: 100%!important;
-        }
+.post{
+    &.card{
+        min-height: 335px!important;
+        height: 100%!important;
     }
-    .new-record {
-        background-color: #03A9F4;
-        border-radius: 50%;
-        bottom: 5%;
-        right: 10%;
-        cursor: pointer;
-        padding: 10px 20px;
-        font-size: 26px;
-        color: #fff;
-        position: fixed;
-        &:hover{
-            background-color: #2196F3;
-            box-shadow: 1px 2px 8px 1px #8a8a8a;
-        }
+}
+.new-record {
+    background-color: #03A9F4;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 10%;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 26px;
+    color: #fff;
+    position: fixed;
+    &:hover{
+        background-color: #2196F3;
+        box-shadow: 1px 2px 8px 1px #8a8a8a;
     }
 }
 

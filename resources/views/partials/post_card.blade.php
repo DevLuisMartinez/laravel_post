@@ -8,14 +8,19 @@
             <label class="d-flex justify-content-end">Author: {{ $post->user->name }}</label>
             <label class="d-flex justify-content-end">{{ $post->published_date }}</label>
         </div>
-
-        <div class="btn-action">
-            @can('post.edit')
-                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-warning col-12">Edit</a>
-            @endcan
-            @can('post.delete')
-            <a href="{{ route('post.destroy', $post->id) }}" class="btn btn-danger col-12">Delete</a>
-            @endcan
-        </div>
+        @if(Route::current()->getName() !== 'home')
+            <div class="btn-action">
+                @can('posts.edit')
+                    <a href="{{ route('post.edit', $post->id) }}" class="btn btn-warning col-12">Edit</a>
+                @endcan
+                @can('posts.delete')
+                <button 
+                class="btn btn-danger delete col-12"
+                data-id="{{ $post->id }}"
+                data-original-title="Delete"
+                data-delete_route="{{ route('post.destroy', $post->id) }}">Delete</button>
+                @endcan
+            </div>
+        @endif
     </div>
 </div>

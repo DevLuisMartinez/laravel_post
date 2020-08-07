@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $posts = $this->postRepository->paginatePosts(6);
+        $posts = $this->postRepository->getPosts(6);
         return view('home', [
             'posts' => $posts
         ]);

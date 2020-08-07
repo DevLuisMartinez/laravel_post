@@ -29,7 +29,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="title">Title</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ old('title', $servicio->title ?? '') }}" maxlength="100">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ old('title', $post->title ?? '') }}" maxlength="100">
                                 <span class="not-valid">
                                     {{ $errors->first('title') }}
                                 <span>
@@ -38,7 +38,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" name="description" id="description" rows="3" maxlength="255">{{ old('description', $servicio->description ?? '') }}</textarea>
+                                <textarea class="form-control" name="description" id="description" rows="3" maxlength="255">{{ old('description', $post->description ?? '') }}</textarea>
                                 <span class="not-valid">
                                     {{ $errors->first('description') }}
                                 <span>

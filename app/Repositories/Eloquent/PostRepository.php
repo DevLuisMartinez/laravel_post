@@ -8,38 +8,25 @@ use App\Repositories\Eloquent\BaseRepository;
 
 class PostRepository extends BaseRepository implements PostRepositoryInterface{
 
-    /**
-     * @var array
-     */
-    protected $fieldSearchable = [];
-
-    /**
-     * Return searchable fields.
-     *
-     * @return array
-     */
-    public function getFieldsSearchable()
-    {
-        return $this->fieldSearchable;
-    }
-
-    /**
-     * Configure the Model.
-     **/
-    public function model(){
-        return Post::class;
+    public function __construct(Post $model){
+        parent::__construct($model);
     }
 
     public function getPosts(){
-        return $this->all();
+        return $this->query()
+                    ->orderBy('publication_date','desc')
+                    ->paginate(6);
     }
 
     public function getPostByID(int $id){
         return $this->find($id);
     }
 
-    public function paginatePosts(int $perPage, array $col = ['*']){
-        return $this->paginate($perPage,$col);
+    public function getPostsByUser(int $userID, int $perPage){
+        return $this->query()
+                    ->where('user_id',$userID)
+                    ->orderBy('publication_date','desc')
+                    ->paginate($perPage);
     }
     
     public function createPost(array $attr){
