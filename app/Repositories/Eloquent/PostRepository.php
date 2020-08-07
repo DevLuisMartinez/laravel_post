@@ -28,11 +28,16 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
                     ->orderBy('publication_date','desc')
                     ->paginate($perPage);
     }
+
+    public function getPostsByDates(string $start_date, string $end_date, int $userID, int $perPage){
+        return $this->query()
+                    ->where('user_id',$userID)
+                    ->whereBetween('publication_date',[$start_date,$end_date])
+                    ->orderBy('publication_date','desc')
+                    ->paginate($perPage);
+    }
     
     public function createPost(array $attr){
-        
-        $attr['publication_date'] = null;
-        $attr['user_id'] = null;
         return $this->create($attr);
     }
 

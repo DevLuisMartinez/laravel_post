@@ -17,6 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/post.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.9/datepicker.min.css" integrity="sha512-Yog+zkte66L91S9y4tcyhCpjvzKjlBxNLW38pm9K2ukBtPN55LKl3dyGvb7ylCFmn/kFKNzN9KbnGPOnHGHxbw==" crossorigin="anonymous" />
 </head>
 <body>
     <div id="app">
@@ -79,6 +80,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/post.js') }}"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.9/datepicker.min.js"></script>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {

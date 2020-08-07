@@ -21,5 +21,6 @@ Route::redirect('/dashboard', '/dashboard/post', 301)->middleware('auth');
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
 
     Route::get('/post/me', 'Dashboard\PostController@myPosts')->name('my.posts');
+    Route::post('/post/search', 'Dashboard\PostController@search')->name('post.search');
     Route::resource('post', 'Dashboard\PostController');
 });

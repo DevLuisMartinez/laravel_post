@@ -184,6 +184,11 @@ return [
          * Repositories Provider
          */
         App\Providers\RepositoryServiceProvider::class,
+
+         /*
+         * External Api Provider
+         */
+        App\Providers\ExternalApiServiceProvider::class,
     ],
 
     /*

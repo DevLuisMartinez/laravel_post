@@ -24,16 +24,16 @@ class Post extends Model
     
     public function setPublicationDateAttribute($value){
         
-        $this->attributes['publication_date'] = Carbon::now()->format('Y-m-d H:i:s');
+        $this->attributes['publication_date'] = !is_null($value) ? $value : $this->attributes['publication_date'] = Carbon::now()->format('Y-m-d H:i:s');
     }
 
     public function setUserIdAttribute($value)
     {   
-        $this->attributes['user_id'] = auth()->id();
+        $this->attributes['user_id'] = !is_null($value) ? $value : auth()->id();
     }
 
     public function getPublishedDateAttribute(){
 
-        return Carbon::parse($this->publication_date)->format('Y-d-m');
+        return Carbon::parse($this->publication_date)->format('m/d/Y');
     }
 }

@@ -3,6 +3,8 @@ $(document).ready(function(){
     $('.delete').on('click',function(){
         deletePost(this);
     });
+
+    $('.datepicker').datepicker();
 });
 
 function deletePost( post_selected ) {
