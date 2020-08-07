@@ -34,6 +34,6 @@ class Post extends Model
 
     public function getPublishedDateAttribute(){
 
-        return Carbon::parse($this->publication_date)->format('m/d/Y');
+        return Carbon::parse($this->publication_date)->format('d/m/Y');
     }
 }

@@ -34,7 +34,11 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
                     ->where('user_id',$userID)
                     ->whereBetween('publication_date',[$start_date,$end_date])
                     ->orderBy('publication_date','desc')
-                    ->paginate($perPage);
+                    ->paginate($perPage)
+                    ->appends([
+                        'start_date' => $start_date,
+                        'end_date' => $end_date
+                    ]);
     }
     
     public function createPost(array $attr){

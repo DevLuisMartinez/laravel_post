@@ -41,7 +41,7 @@ class PostController extends Controller
 
     public function search(Request $request){
         
-        $perPage = 3;
+        $perPage = 1;
         $posts = $this->postRepository
                         ->getPostsByDates(
                             Carbon::parse($request->start_date)->format('Y-m-d'),

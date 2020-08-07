@@ -4,7 +4,9 @@ $(document).ready(function(){
         deletePost(this);
     });
 
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+    });
 });
 
 function deletePost( post_selected ) {

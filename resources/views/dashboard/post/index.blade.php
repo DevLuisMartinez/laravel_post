@@ -11,8 +11,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <form method="POST" action="{{ route('post.search') }}">
-                      @csrf
+                    <form method="GET" action="{{ route('post.search') }}">
                       <div class="form-group">
                         <label>From</label>
                         <input type="text" class="form-control datepicker" placeholder="Search By Date" name="start_date"  autocomplete="off">
