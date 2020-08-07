@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>LBP</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -13,6 +13,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/post.css') }}" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,7 +26,7 @@
                 <ul class="navbar-nav ml-auto">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/home') }}">Dashboard</a>
+                            <a class="nav-link" href="{{ url('dashboard') }}">Dashboard</a>
                         </li>
                     @else
                         <li class="nav-item">
@@ -47,18 +48,7 @@
                 <h1>Laravel Blogging Platform</h1>
             </div>
             <div>
-                <h4>Last Posts</h4>
-                <div class="d-flex flex-wrap mt-3">
-                    <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
-                        <div class="card">
-                            <h5 class="card-header">Featured</h5>
-                            <div class="card-body">
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <label class="d-flex justify-content-end">12 Oct 2020<label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('partials.post_grid')
             </div>
         </div>
 

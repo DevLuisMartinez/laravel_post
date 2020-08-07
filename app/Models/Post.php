@@ -13,8 +13,10 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $fillable = ['title','description','publication_date','user_id'];
-
-
+    protected $appends = [
+        'published_date'
+    ];
+    
     public function user(){
 
         return $this->belongsTo(User::class);
@@ -28,5 +30,10 @@ class Post extends Model
     public function setUserIdAttribute($value)
     {   
         $this->attributes['user_id'] = auth()->id();
+    }
+
+    public function getPublishedDateAttribute(){
+
+        return Carbon::parse($this->publication_date)->format('Y-d-m');
     }
 }

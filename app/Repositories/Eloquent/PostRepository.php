@@ -8,8 +8,26 @@ use App\Repositories\Eloquent\BaseRepository;
 
 class PostRepository extends BaseRepository implements PostRepositoryInterface{
 
-    public function __construct(Post $model){
-        parent::__construct($model);
+    /**
+     * @var array
+     */
+    protected $fieldSearchable = [];
+
+    /**
+     * Return searchable fields.
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
+    }
+
+    /**
+     * Configure the Model.
+     **/
+    public function model(){
+        return Post::class;
     }
 
     public function getPosts(){
@@ -19,11 +37,15 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface{
     public function getPostByID(int $id){
         return $this->find($id);
     }
+
+    public function paginatePosts(int $perPage, array $col = ['*']){
+        return $this->paginate($perPage,$col);
+    }
     
     public function createPost(array $attr){
         
-        $attr['publication_date'] = '';
-        $attr['user_id'] = '';
+        $attr['publication_date'] = null;
+        $attr['user_id'] = null;
         return $this->create($attr);
     }
 
